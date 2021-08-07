@@ -5,4 +5,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
 ### Linter status:
-![example workflow](https://github.com/ola-9/frontend-project-lvl1/actions/workflows/linter.yml/badge.svg)
+![linter](https://github.com/ola-9/frontend-project-lvl1/actions/workflows/linter.yml/badge.svg)
