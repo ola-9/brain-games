@@ -7,5 +7,8 @@
 ### Linter status:
 ![linter](https://github.com/ola-9/frontend-project-lvl1/actions/workflows/linter.yml/badge.svg)
 
-### Brain-even аскинема
+### Brain-even asciinema
 [![asciicast](https://asciinema.org/a/Kdd0H4g5oONyColO5QdViHGY9.svg)](https://asciinema.org/a/Kdd0H4g5oONyColO5QdViHGY9)
+
+### Brain-calc asciinema
+[![asciicast](https://asciinema.org/a/GqaxC9x05HvNS5PggucYmwa2B.svg)](https://asciinema.org/a/GqaxC9x05HvNS5PggucYmwa2B)

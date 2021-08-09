@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import parityCheck from '../src/even-logic.js';
+import playGame from '../src/index.js';
+import parityCheck from '../src/games/brain-even.js';
 
-console.log('Welcome to the Brain Games!');
-parityCheck();
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+playGame(parityCheck, description);
