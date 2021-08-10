@@ -1,4 +1,4 @@
-import getRandomIntInclusive from '../util.js';
+import { getRandomIntInclusive } from '../util.js';
 import { getAnswer } from '../cli.js';
 
 const mathOperations = ['+', '-', '*'];
@@ -13,7 +13,7 @@ const calculate = () => {
   const number2 = getRandomIntInclusive(start, end);
   const question = `${number1} ${operation} ${number2}`;
   const userAnswer = Number(getAnswer(question));
-  let correctAnswer = '';
+  let correctAnswer = null;
 
   switch (operation) {
     case '+':

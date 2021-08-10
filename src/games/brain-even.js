@@ -1,5 +1,5 @@
 import { getAnswer } from '../cli.js';
-import getRandomIntInclusive from '../util.js';
+import { getRandomIntInclusive } from '../util.js';
 
 const startOfRange = 1;
 const endOfRange = 100;
