@@ -23,3 +23,23 @@ export const getGreatestCommonDivisor = (a, b) => {
 
   return getGreatestCommonDivisor(n, reminder);
 };
+
+export const checkIfPrime = (num) => {
+  if (num % 2 === 0) {
+    return false;
+  }
+
+  const iter = (acc) => {
+    if (num === acc) {
+      return true;
+    }
+
+    if (num % acc === 0) {
+      return false;
+    }
+
+    return iter(acc + 1);
+  };
+
+  return iter(3);
+};
