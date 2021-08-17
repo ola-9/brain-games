@@ -1,17 +1,26 @@
-import { getRandomIntInclusive, getGreatestCommonDivisor } from '../util.js';
-import { getAnswer } from '../cli.js';
+import getRandomIntInclusive from '../util.js';
+import playGame from '../index.js';
+
+const description = 'Find the greatest common divisor of given numbers.';
 
 const start = 1;
 const end = 50;
+
+const getGcd = (num1, num2) => {
+  if (num2 === 0) return num1;
+
+  return getGcd(num2, num1 % num2);
+};
 
 const findGreatestCommonDivisor = () => {
   const number1 = getRandomIntInclusive(start, end);
   const number2 = getRandomIntInclusive(start, end);
   const question = `${number1} ${number2}`;
-  const userAnswer = Number(getAnswer(question));
-  const correctAnswer = getGreatestCommonDivisor(number1, number2);
+  const correctAnswer = String(getGcd(number1, number2));
 
-  return [userAnswer, correctAnswer];
+  return [question, correctAnswer];
 };
 
-export default findGreatestCommonDivisor;
+export default () => {
+  playGame(findGreatestCommonDivisor, description);
+};

@@ -1,15 +1,20 @@
-import { getAnswer } from '../cli.js';
-import { getRandomIntInclusive } from '../util.js';
+import getRandomIntInclusive from '../util.js';
+import playGame from '../index.js';
 
 const startOfRange = 1;
 const endOfRange = 100;
 
-const parityCheck = () => {
-  const question = getRandomIntInclusive(startOfRange, endOfRange);
-  const userAnswer = getAnswer(question);
-  const correctAnswer = (Number(question) % 2 === 0) ? 'yes' : 'no';
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  return [userAnswer, correctAnswer];
+const isEven = (number) => number % 2 === 0;
+
+const parityCheck = () => {
+  const number = getRandomIntInclusive(startOfRange, endOfRange);
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
+
+  return [number, correctAnswer];
 };
 
-export default parityCheck;
+export default () => {
+  playGame(parityCheck, description);
+};

@@ -1,9 +1,24 @@
-import { getRandomIntInclusive } from '../util.js';
-import { getAnswer } from '../cli.js';
+import getRandomIntInclusive from '../util.js';
+import playGame from '../index.js';
+
+const description = 'What is the result of the expression?';
 
 const mathOperations = ['+', '-', '*'];
 const start = 1;
 const end = 20;
+
+const calcExpression = (operation, number1, number2) => {
+  switch (operation) {
+    case '+':
+      return number1 + number2;
+    case '-':
+      return number1 - number2;
+    case '*':
+      return number1 * number2;
+    default:
+      return null; // д.б. сообщение об ошибке; null потому что ругается linter
+  }
+};
 
 const calculate = () => {
   const numberOfOperations = mathOperations.length - 1;
@@ -12,24 +27,11 @@ const calculate = () => {
   const number1 = getRandomIntInclusive(start, end);
   const number2 = getRandomIntInclusive(start, end);
   const question = `${number1} ${operation} ${number2}`;
-  const userAnswer = Number(getAnswer(question));
-  let correctAnswer = null;
+  const correctAnswer = String(calcExpression(operation, number1, number2));
 
-  switch (operation) {
-    case '+':
-      correctAnswer = number1 + number2;
-      break;
-    case '-':
-      correctAnswer = number1 - number2;
-      break;
-    case '*':
-      correctAnswer = number1 * number2;
-      break;
-    default:
-      console.log('Что здесь будет?');
-  }
-
-  return [userAnswer, correctAnswer];
+  return [question, correctAnswer];
 };
 
-export default calculate;
+export default () => {
+  playGame(calculate, description);
+};

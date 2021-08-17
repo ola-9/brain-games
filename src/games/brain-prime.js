@@ -1,16 +1,32 @@
-import { getRandomIntInclusive, checkIfPrime } from '../util.js';
-import { getAnswer } from '../cli.js';
+import getRandomIntInclusive from '../util.js';
+import playGame from '../index.js';
+
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const start = 1;
 const end = 100;
 
-const guessIfNumberPrime = () => {
-  const number = getRandomIntInclusive(start, end);
-  const isPrime = checkIfPrime(number);
-  const correctAnswer = isPrime ? 'yes' : 'no';
-  const userAnswer = getAnswer(number);
+const isPrime = (num) => {
+  if (num <= 1) {
+    return false;
+  }
 
-  return [userAnswer, correctAnswer];
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
 };
 
-export default guessIfNumberPrime;
+const guessIfNumberPrime = () => {
+  const number = getRandomIntInclusive(start, end);
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+
+  return [number, correctAnswer];
+};
+
+export default () => {
+  playGame(guessIfNumberPrime, description);
+};

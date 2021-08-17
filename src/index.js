@@ -1,30 +1,27 @@
-import {
-  greeting,
-  describeGame,
-  winMessage,
-  failMessage,
-} from './cli.js';
+import readlineSync from 'readline-sync';
+import greeting from './cli.js';
 
 const numberOfRounds = 3;
 
 const playGame = (game, description) => {
   const userName = greeting();
-  describeGame(description);
+  console.log(description);
 
   for (let i = 1; i <= numberOfRounds; i += 1) {
-    const [userAnswer, correctAnswer] = game();
+    const [question, correctAnswer] = game();
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer === correctAnswer) {
-      winMessage();
+      console.log('Correct!');
     } else {
-      failMessage(userName, userAnswer, correctAnswer);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
 
-      return null;
+      return;
     }
   }
   console.log(`Congratulations, ${userName}!`);
-
-  return null;
 };
 
 export default playGame;
