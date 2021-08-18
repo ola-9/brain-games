@@ -17,8 +17,7 @@ const createProgression = (startingPoint, step, length) => {
 
 const completeProgression = () => {
   const progressionLength = getRandomIntInclusive(5, 10);
-  // const missingIndex = getRandomIntInclusive(0, progressionLength - 1);
-  const missingIndex = 0;
+  const missingIndex = getRandomIntInclusive(0, progressionLength - 1);
   const startingPoint = getRandomIntInclusive(1, 25);
   const step = getRandomIntInclusive(2, 10);
   const progression = createProgression(startingPoint, step, progressionLength);
