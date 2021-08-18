@@ -20,7 +20,7 @@ const calcExpression = (operation, number1, number2) => {
   }
 };
 
-const calculate = () => {
+const getGameData = () => {
   const numberOfOperations = mathOperations.length - 1;
   const index = getRandomIntInclusive(0, numberOfOperations);
   const operation = mathOperations[index];
@@ -33,5 +33,5 @@ const calculate = () => {
 };
 
 export default () => {
-  playGame(calculate, description);
+  playGame(getGameData, description);
 };

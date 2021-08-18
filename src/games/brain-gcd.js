@@ -12,7 +12,7 @@ const getGcd = (num1, num2) => {
   return getGcd(num2, num1 % num2);
 };
 
-const findGreatestCommonDivisor = () => {
+const getGameData = () => {
   const number1 = getRandomIntInclusive(start, end);
   const number2 = getRandomIntInclusive(start, end);
   const question = `${number1} ${number2}`;
@@ -22,5 +22,5 @@ const findGreatestCommonDivisor = () => {
 };
 
 export default () => {
-  playGame(findGreatestCommonDivisor, description);
+  playGame(getGameData, description);
 };

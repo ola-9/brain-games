@@ -20,7 +20,7 @@ const isPrime = (num) => {
   return true;
 };
 
-const guessIfNumberPrime = () => {
+const getGameData = () => {
   const number = getRandomIntInclusive(start, end);
   const correctAnswer = isPrime(number) ? 'yes' : 'no';
 
@@ -28,5 +28,5 @@ const guessIfNumberPrime = () => {
 };
 
 export default () => {
-  playGame(guessIfNumberPrime, description);
+  playGame(getGameData, description);
 };

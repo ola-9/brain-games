@@ -4,18 +4,16 @@ import playGame from '../index.js';
 const description = 'What number is missing in the progression?';
 
 const createProgression = (startingPoint, step, length) => {
-  let item = startingPoint;
-  const progression = [item];
+  const progression = [];
 
   for (let i = 0; i < length; i += 1) {
-    item += step;
-    progression.push(item);
+    progression.push(startingPoint + i * step);
   }
 
   return progression;
 };
 
-const completeProgression = () => {
+const getGameData = () => {
   const progressionLength = getRandomIntInclusive(5, 10);
   const missingIndex = getRandomIntInclusive(0, progressionLength - 1);
   const startingPoint = getRandomIntInclusive(1, 25);
@@ -28,5 +26,5 @@ const completeProgression = () => {
 };
 
 export default () => {
-  playGame(completeProgression, description);
+  playGame(getGameData, description);
 };
